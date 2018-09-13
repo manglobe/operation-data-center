@@ -4,9 +4,9 @@
   "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
   "scripts": {
-    "mock": "cross-env DISABLE_ESLINT=true roadhog dev",
-    "start": "cross-env NO_PROXY=true DISABLE_ESLINT=true roadhog dev",
-    "build": "cross-env DISABLE_ESLINT=true roadhog build",
+    "mock": "cross-env ESLINT=none roadhog dev",
+    "start": "cross-env NO_PROXY=true ESLINT=none roadhog dev",
+    "build": "cross-env ESLINT=none roadhog build",
     "site": "roadhog-api-doc static && gh-pages -d dist",
     "analyze": "cross-env ANALYZE=true roadhog build",
     "lint:style": "stylelint \"src/**/*.less\" --syntax less",
