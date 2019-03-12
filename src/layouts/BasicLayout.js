@@ -97,7 +97,7 @@ class BasicLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = '新华医院经营数据中心';
+    let title = '掌幄智能决策支持系统';
     if (routerData[pathname] && routerData[pathname].name) {
       title = `${routerData[pathname].name}`;
     }
@@ -140,10 +140,10 @@ class BasicLayout extends React.PureComponent {
   }
   render() {
     const {
-      currentUser, collapsed, fetchingNotices, notices, routerData, match, location, tab
+      currentUser, collapsed, fetchingNotices, notices, routerData, match, location, tab,
     } = this.props;
-    //props中为什么会有这么多变量？？
-    console.log(this.props)
+    // props中为什么会有这么多变量？？
+    console.log(this.props);
     const { tabList, activeKey } = tab;
     const bashRedirect = this.getBashRedirect();
     const layout = (
@@ -174,9 +174,10 @@ class BasicLayout extends React.PureComponent {
               onNoticeVisibleChange={this.handleNoticeVisibleChange}
             />
           </Header>
-          <TabNav 
-           search={location.search} />
-          <Content style={{ margin: '24px 24px 0', height: '100%' }}>           
+          <TabNav
+            search={location.search}
+          />
+          <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             <Switch>
               {
                 redirectData.map(item =>
@@ -184,7 +185,7 @@ class BasicLayout extends React.PureComponent {
                 )
               }
               {
-                getRoutes(match.path, routerData).map(item => {
+                getRoutes(match.path, routerData).map((item) => {
                   // 此方法的作用根据match.path匹配对应的子级路由
                   return (
                     <AuthorizedRoute
@@ -195,14 +196,15 @@ class BasicLayout extends React.PureComponent {
                       authority={item.authority}
                       redirectPath="/exception/403"
                     />
-                  )}
+                  );
+ }
                 )
               }
               <Redirect exact from="/" to={bashRedirect} />
               <Route render={NotFound} />
             </Switch>
           </Content>
-          {/*<Footer style={{ padding: 0 }}>
+          {/* <Footer style={{ padding: 0 }}>
             <GlobalFooter
               links={[{
                 key: 'Pro 首页',
