@@ -10,8 +10,8 @@ import styles from './index.less';
 
 export default class GlobalHeader extends PureComponent {
   state = {
-    token: window._csrf ? window._csrf.token : 'token'
-  }
+    token: window._csrf ? window._csrf.token : 'token',
+  };
   componentWillUnmount() {
     this.triggerResizeEvent.cancel();
   }
@@ -19,44 +19,50 @@ export default class GlobalHeader extends PureComponent {
     const { collapsed, onCollapse } = this.props;
     onCollapse(!collapsed);
     this.triggerResizeEvent();
-  }
+  };
   @Debounce(600)
-  triggerResizeEvent() { // eslint-disable-line
+  triggerResizeEvent() {
+    // eslint-disable-line
     const event = document.createEvent('HTMLEvents');
     event.initEvent('resize', true, false);
     window.dispatchEvent(event);
   }
   logoOut = () => {
     document.querySelector('#logoutForm').submit();
-  }
+  };
   render() {
     const {
-      currentUser, collapsed, fetchingNotices, isMobile, logo,
-      onNoticeVisibleChange, onMenuClick, onNoticeClear,
+      currentUser,
+      collapsed,
+      fetchingNotices,
+      isMobile,
+      logo,
+      onNoticeVisibleChange,
+      onMenuClick,
+      onNoticeClear,
     } = this.props;
-    const { token } = this.state
+    const { token } = this.state;
     const menu = (
-      <Menu className={styles.menu} selectedKeys={[]} onClick={ this.logoOut }>
-        <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>
+      <Menu className={styles.menu} selectedKeys={[]} onClick={this.logoOut}>
+        <Menu.Item key="logout">
+          <Icon type="logout" />
+          退出登录
+        </Menu.Item>
       </Menu>
     );
     return (
       <div className={styles.header}>
-        {isMobile && (
-          [
-            (
-              <Link to="/" className={styles.logo} key="logo">
-                <img src={logo} alt="logo" width="32" />
-              </Link>
-            ),
-            <Divider type="vertical" key="line" />,
-          ]
-        )}
+        {isMobile && [
+          <Link to="/" className={styles.logo} key="logo">
+            <img src={logo} alt="logo" width="32" />
+          </Link>,
+          <Divider type="vertical" key="line" />,
+        ]}
         <Icon
           className={styles.trigger}
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={this.toggle}
-        />      
+        />
         <div className={styles.right}>
           {currentUser ? (
             <Dropdown overlay={menu}>
@@ -64,14 +70,20 @@ export default class GlobalHeader extends PureComponent {
                 <span className={styles.name}>{currentUser.name}</span>
               </span>
             </Dropdown>
-          ) : <Spin size="small" style={{ marginLeft: 8 }} />}
+          ) : (
+            <Spin size="small" style={{ marginLeft: 8 }} />
+          )}
           <span style={{ marginLeft: 20 }}>
-            <img src={logo} alt="logo" width="40"/>
-            <Divider type="vertical" key="line" style={{ height: 25, background: '#15984b' }}/>
-            <span style={{
-              fontSize: 18,
-              color: '#15984b'
-            }}>运营数据中心</span>
+            <img src={logo} alt="logo" width="30" />
+            <Divider type="vertical" key="line" style={{ height: 25, background: '#198eeb' }} />
+            <span
+              style={{
+                fontSize: 18,
+                color: '#198eeb',
+              }}
+            >
+              运营数据中心
+            </span>
           </span>
         </div>
       </div>

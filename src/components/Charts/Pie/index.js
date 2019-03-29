@@ -89,7 +89,7 @@ export default class Pie extends Component {
       data = [],
       guide = false
     } = this.props;
-    
+
     const pieClassName = classNames(styles.pie, className, {
       [styles.hasLegend]: true,
     });
@@ -111,7 +111,7 @@ export default class Pie extends Component {
       dimension: 'item',
       as: 'percent',
     });
-    
+
     //图表类型样式
     const gemStyle = {
       lineWidth, //饼图区块间隔距离
@@ -124,7 +124,7 @@ export default class Pie extends Component {
             <Chart
               height={height}
               width={width}
-              forceFit={forceFit} 
+              forceFit={forceFit}
               data={dv}
               padding={padding}
               animate={animate}
@@ -136,7 +136,7 @@ export default class Pie extends Component {
               {(subTitle || total) && (
                 <div className={styles.total}>
                   {subTitle && <h4 className="pie-sub-title" style={{ color: '#666', fontSize: '14px' }}>{subTitle}</h4>}
-                  {total && <div className="pie-stat" style={{ color: '#15984B', fontSize: '20px' }} dangerouslySetInnerHTML={{ __html: total }} />}
+                  {total && <div className="pie-stat" style={{ color: '#198eeb', fontSize: '20px' }} dangerouslySetInnerHTML={{ __html: total }} />}
                 </div>
               )}
               <Geom
@@ -154,7 +154,7 @@ export default class Pie extends Component {
                     textStyle={{
                       //textAlign: 'center',
                       //textBaseline: 'middle',
-                      //fontSize: '24', 
+                      //fontSize: '24',
                       //lineWidth: 4, // 线的粗细
                       //stroke: '#ff8800', // 线的颜色
                       //lineDash: [ 2, 1 ], // 虚线样式
@@ -170,8 +170,8 @@ export default class Pie extends Component {
                       const percent = (point.percent * 100).toFixed(2) + '%';
                       const count = valueFormat ? valueFormat(point.count) : point.count;
                       // 自定义 html 模板
-                      return `<span style="color: ${point.color}; font-size: 14px;"> 
-                               ${percent} 
+                      return `<span style="color: ${point.color}; font-size: 14px;">
+                               ${percent}
                               </span>
                               <span style="display: inline-block;width: max-content; font-size: 20px; color: #333;">
                                ${count}
@@ -208,7 +208,7 @@ export default class Pie extends Component {
                       }}
                     />
                   </span>
-                )}             
+                )}
               </li>
             ))}
           </ul>
