@@ -97,7 +97,7 @@ class BasicLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = '华卓科技';
+    let title = '运营数据中心';
     if (routerData[pathname] && routerData[pathname].name) {
       title = `${routerData[pathname].name}`;
     }
@@ -228,7 +228,7 @@ class BasicLayout extends React.PureComponent {
                 </Fragment>
               }
             />
-          </Footer>*/}
+          </Footer> */}
         </Layout>
       </Layout>
     );

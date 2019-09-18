@@ -194,10 +194,10 @@ export default class Prescription extends Component {
         }}>
           {isOneDay ? date.report.beginDate : `${date.report.beginDate} --- ${date.report.endDate}`}
         </div>
-        <div className="autoHeightCardWrap">
+        <div className={styles.wrap + " autoHeightCardWrap"} >
           <div className="autoHeightCard" style={{ marginRight: 20, width: '70%' }}>
             <div className="cardTitle">不同科室所开处方数量</div>
-            <div className="cardBody" style={{ padding: 0 }}>
+            <div className="cardBody" style={{ padding: 0 }} >
               <Table 
                 onChange={this.onChange}
                 loading={loading}

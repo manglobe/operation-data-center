@@ -140,7 +140,7 @@ export default class NonDrug extends Component {
         }}>
           {isOneDay ? date.report.beginDate : `${date.report.beginDate} --- ${date.report.endDate}`}
         </div>
-        <div className="autoHeightCardWrap">
+        <div className= {styles.wrap + " autoHeightCardWrap"} >
           <div className="autoHeightCard" style={{ marginRight: 20, width: '60%' }}>
             <div className="cardTitle">不同科室非药物中治疗率</div>
             <div className="cardBody" style={{ padding: 0 }}>
